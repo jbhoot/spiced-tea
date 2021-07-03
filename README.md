@@ -10,3 +10,5 @@ Execute the following steps to produce an executable output in `_build/default/s
 1. ./node_modules/.bin/browserify _build/default/src/index.js -o _build/default/src/index.br.js
 1. ./node_modules/.bin/http-server _build/default/src
 ```
+
+There is a lot of scope to improve the workflow. But this is the bare minimum.
