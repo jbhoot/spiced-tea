@@ -2,7 +2,7 @@
   "scripts": {
     "postinstall": "esy",
     "prebuild": "cp ./src/{index.html,index.js} _build/default/src/",
-    "build": "npx browserify _build/default/src/index.js -o _build/default/src/index.br.js",
+    "build": "npx browserify _build/default/src/index.js -o _build/default/src/index.bs.js",
     "start": "yarn run build && npx http-server _build/default/src"
   },
   "devDependencies": {
