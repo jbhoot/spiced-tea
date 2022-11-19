@@ -15,20 +15,25 @@
         in
         pkgs.mkShell {
           buildInputs = [
-            pkgs.nodejs
-            pkgs.yarn
-
             pkgs.ocaml
             pkgs.ocamlPackages.findlib
             pkgs.dune_3
+            pkgs.ocamlPackages.ocaml-lsp
+            pkgs.ocamlformat
+            pkgs.ocamlPackages.ocamlformat-rpc-lib
+            pkgs.ocamlPackages.utop
+            pkgs.dot-merlin-reader
 
             inputs.melange.packages.${system}.mel
             inputs.melange.packages.${system}.melange
+
+            pkgs.nodejs
+            pkgs.yarn
           ];
 
           shellHook = ''
             ln -sfn ${inputs.melange.packages.${system}.melange}/lib/melange/runtime node_modules/melange
-            '';
+          '';
         };
     in
     {
