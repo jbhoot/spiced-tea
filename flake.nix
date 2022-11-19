@@ -25,7 +25,6 @@
             pkgs.dot-merlin-reader
 
             inputs.melange.packages.${system}.mel
-            inputs.melange.packages.${system}.melange
 
             pkgs.nodejs
             pkgs.yarn
