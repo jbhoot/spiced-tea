@@ -11,27 +11,30 @@
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       createDevShell = system:
         let
-          pkgs = import inputs.nixpkgs { inherit system; };
+          pkgs =
+            inputs.nixpkgs.legacyPackages.${system}.extend
+              inputs.melange.overlays.default;
         in
         pkgs.mkShell {
-          buildInputs = [
-            pkgs.ocaml
-            pkgs.ocamlPackages.findlib
-            pkgs.dune_3
-            pkgs.ocamlPackages.ocaml-lsp
+          buildInputs = with pkgs.ocamlPackages; [
+            ocaml
+            findlib
+            dune_3
+            ocaml-lsp
+            ocamlformat-rpc-lib
+            utop
+            dot-merlin-reader
+            melange
+            mel
+            merlin
+
             pkgs.ocamlformat
-            pkgs.ocamlPackages.ocamlformat-rpc-lib
-            pkgs.ocamlPackages.utop
-            pkgs.dot-merlin-reader
-
-            inputs.melange.packages.${system}.mel
-
             pkgs.nodejs
             pkgs.yarn
           ];
 
           shellHook = ''
-            ln -sfn ${inputs.melange.packages.${system}.melange}/lib/melange/runtime node_modules/melange
+            ln -sfn ${pkgs.ocamlPackages.melange}/lib/melange/runtime node_modules/melange
           '';
         };
     in
