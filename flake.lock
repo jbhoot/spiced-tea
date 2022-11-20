@@ -230,11 +230,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1668882548,
-        "narHash": "sha256-Meh6sLHZqem+89n5udwJ8Qex+TqUVOd9hp3/W8sqIoM=",
+        "lastModified": 1668928688,
+        "narHash": "sha256-ERj9yQmqzx63wkiBSmQEPsILYBMQtXcT+kaMd3jSQkA=",
         "owner": "melange-re",
         "repo": "melange",
-        "rev": "01171266a665a275ad29ff5e21d1effbb6e14e96",
+        "rev": "01aa3e8566e848ed54550ba4289a061cdb72c2f6",
         "type": "github"
       },
       "original": {
